@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {showToast} from "../tools/toast";
 import NewButton from "./UI/button/NewButton";
+import '../styles/App.css'
 
 const Test = () => {
     function getLocalCount () {
@@ -54,11 +55,13 @@ const Test = () => {
 
     return (
         <div>
-            <h1>{count}</h1>
-            <NewButton onClick={increment}>increment</NewButton>
-            <NewButton onClick={decrement}>decrement</NewButton>
-            <NewButton onClick={setClear}>clear</NewButton>
-            <h2>{check}</h2>
+            <h1 className='div-center'>{count}</h1>
+            <div className='div-center'>
+                <NewButton onClick={increment}>increment</NewButton>
+                <NewButton onClick={decrement}>decrement</NewButton>
+                <NewButton onClick={setClear}>clear</NewButton>
+            </div>
+            <h2 className='div-center'>{check}</h2>
         </div>
     );
 };
