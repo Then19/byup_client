@@ -1,0 +1,39 @@
+a{
+    color: #ffff;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(27, 27, 42);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+}
+
+.header-item {
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-left: 7px;
+}
+
+.header-item:hover {
+    background-color: #26266e;
+    border-radius: 8px;
+}
+
+.err {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}

@@ -7,6 +7,15 @@
 #root {
     display: flex;
     justify-content: center;
+    margin-top: 360px;
+    margin-bottom: 50px;
+}
+
+body {
+    background-image: url("../img/back.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #202124;
 }
 
 .App {

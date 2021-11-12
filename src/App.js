@@ -1,19 +1,26 @@
 import React from "react";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Test from "./components/Test";
 import './styles/App.css'
-import OnlineChat from "./components/OnlineChat";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ShopPage from "./pages/ShopPage";
+import NotFound from "./pages/NotFound";
+import NavBar from "./components/NavBar";
 
 
 function App() {
 
     return (
-        <div className="App">
-            <Test/>
-            <OnlineChat/>
-            <ToastContainer />
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <NavBar/>
+                <Routes>
+                    <Route path="/" element={<HomePage page="main"/>} />
+                    <Route path="/shop" element={<ShopPage page="shop"/>} />
+                    <Route path="*" element={<NotFound />} status={404}/>
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 

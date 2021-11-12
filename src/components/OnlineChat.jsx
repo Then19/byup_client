@@ -5,16 +5,33 @@ import InputName from "./UI/input/InputName";
 import {showToast} from "../tools/toast";
 import '../styles/Chat.css'
 
-const OnlineChat = () => {
+const OnlineChat = ({page, ...props}) => {
 
-    const [messages, setMessages] = useState([{id: 0, message: "Загрузка чата...", name: "Server"}])
+    function getLocalChatName () {
+        const val = localStorage.getItem('ChatName')
+        if (val) {
+            return val
+        } else {
+            return ''
+        }
+    }
+
+    const [messages, setMessages] = useState([{id: 0, message: "Загрузка сообщений...", name: "Server"}])
     const [reload, startReload] = useState(0)
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState(getLocalChatName())
     const [msg, setMsg] = useState('')
 
 
     useEffect(() => {
-        fetch("/get_messages").then(
+        let data = new FormData()
+        data.append("page", page)
+        fetch("/get_messages", {
+            method: "POST",
+            body: data,
+            headers: {
+                "type": "formData"
+            }
+        }).then(
             res => res.json()
         ).then(data => {
             setMessages(data.data)
@@ -22,9 +39,12 @@ const OnlineChat = () => {
     }, [reload])
 
     function addNewMessage(){
+        localStorage.setItem("ChatName", username)
+
         let data = new FormData()
         data.append("username", username)
         data.append("message", msg)
+        data.append("page", page)
         fetch("/add_message", {
             method: "POST",
             body: data,
@@ -34,31 +54,30 @@ const OnlineChat = () => {
         }).then(rtn => rtn.json()).then(
             sts => {
                 if (sts.status) {
-                    showToast('success', 'Сообщение в чат успешно отправлено')
+                    showToast('success', 'Комментарий успешно оставлен')
+                    startReload(reload + 1)
                 } else {
-                    showToast('warn', 'Сообщение не было доставлено: ' + sts.warn)
+                    showToast('warn', 'Комментарий не был оставлен: ' + sts.warn)
                 }
             }
         )
         setMsg('')
-        startReload(reload + 1)
     }
 
     return (
-        <div>
+        <div className="full-chat">
+            <InputText className="inputText" placeholder="Текст сообщения" value={msg} onChange={e => setMsg(e.target.value)}/>
+            <InputName className="inputName" placeholder="Ваше имя" value={username} onChange={u => setUsername(u.target.value)}/>
+            <NewButton className="myBtn" onClick={addNewMessage}>Отправить сообщение</NewButton>
+            <NewButton className="myBtn" onClick={() => {startReload(reload + 1)
+                showToast('info', 'Обновление чата')}}>upd</NewButton>
             <div className='chat'>
                 {messages.map(msg =>
                     <div key={msg.id} className='message' id={'msg-' + msg.id}>
-                        <h4>{msg.name}: {msg.message}</h4>
+                        <h3>{msg.name}: <span className='font-15'>{msg.message}</span></h3>
                     </div>
                 )}
-
             </div>
-            <InputText placeholder="Текст сообщения" value={msg} onChange={e => setMsg(e.target.value)}/>
-            <InputName placeholder="Ваше имя в чате" value={username} onChange={e => setUsername(e.target.value)}/>
-            <NewButton onClick={addNewMessage}>Отправить сообщение</NewButton>
-            <NewButton onClick={() => {startReload(reload + 1)
-                showToast('info', 'Обновление чата')}}>upd</NewButton>
         </div>
     );
 };
