@@ -1,14 +1,14 @@
 import React from 'react';
+import OnlineChat from "../components/OnlineChat";
 import {ToastContainer} from "react-toastify";
-import ShopMenu from "../components/ShopMenu";
 
-const ShopPage = ({page, ...props}) => {
+const NewsPage = ({page, ...props}) => {
     return (
         <div>
-            <ShopMenu/>
+            <OnlineChat page={page}/>
             <ToastContainer/>
         </div>
     );
 };
 
-export default ShopPage;
+export default NewsPage;

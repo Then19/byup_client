@@ -74,7 +74,12 @@ const OnlineChat = ({page, ...props}) => {
             <div className='chat'>
                 {messages.map(msg =>
                     <div key={msg.id} className='message' id={'msg-' + msg.id}>
-                        <h3>{msg.name}: <span className='font-15'>{msg.message}</span></h3>
+                        <div>
+                            <h3>{msg.name}: <span className='font-15'>{msg.message}</span></h3>
+                        </div>
+                        <div>
+                            <span>{msg.time}</span>
+                        </div>
                     </div>
                 )}
             </div>

@@ -6,21 +6,21 @@ const NavBar = ({page, ...props}) => {
         <div className="header">
             <div className="header-section">
                 <div className="header-item headerButton">
-                    <a href="/">Главная</a>
+                    <a className="a-nav" href="/">Главная</a>
                 </div>
                 <div className="header-item headerButton">
-                    <a href="/shop">Магазин</a>
+                    <a className="a-nav" href="/shop">Магазин</a>
                 </div>
                 <div className="header-item headerButton">
-                    <a href="/about">Новости</a>
+                    <a className="a-nav" href="/news">Новости</a>
                 </div>
                 <div className="header-item headerButton">
-                    <a href="/about">О нас</a>
+                    <a className="a-nav" href="/about">О нас</a>
                 </div>
             </div>
             <div className="header-section">
                 <div className="header-item headerButton">
-                    <a href="/shopcart">Корзина</a>
+                    <a className="a-nav" href="/shopcart">Корзина</a>
                 </div>
             </div>
         </div>
