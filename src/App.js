@@ -7,6 +7,7 @@ import ShopPage from "./pages/ShopPage";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import NewsPage from "./pages/NewsPage";
+import BasePage from "./pages/BasePage";
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
                 <NavBar/>
                 <Routes>
                     <Route path="/" element={<HomePage page="main"/>} />
-                    <Route path="/shop" element={<ShopPage page="shop"/>} />
                     <Route path="/news" element={<NewsPage page="news"/>} />
+                    <Route exact path="/shop" element={<ShopPage page="shop"/>} />
+                    <Route exact path="/shop/:id" element={<BasePage page="shop"/>} />
                     <Route path="*" element={<NotFound />} status={404}/>
                 </Routes>
             </div>
