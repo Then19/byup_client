@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import NewsPage from "./pages/NewsPage";
 import BasePage from "./pages/BasePage";
+import CartPage from "./pages/CartPage";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage page="main"/>} />
                     <Route path="/news" element={<NewsPage page="news"/>} />
+                    <Route path="/shopcart" element={<CartPage/>} />
                     <Route exact path="/shop" element={<ShopPage page="shop"/>} />
                     <Route exact path="/shop/:id" element={<BasePage page="shop"/>} />
                     <Route path="*" element={<NotFound />} status={404}/>

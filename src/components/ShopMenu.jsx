@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/ShopMenu.css"
+import {showToast} from "../tools/toast";
 
 const ShopMenu = () => {
     const [items, setItems] = useState([{'id': 0, 'item_name': 'Server', 'item_description': 'Not', 'item_price': 0,
@@ -31,6 +32,16 @@ const ShopMenu = () => {
 
     }
 
+    const addItemCart = (item_numb) => {
+        let arrItems = [];
+        if (localStorage.getItem('cart') !== null) {
+            arrItems.push(...JSON.parse(localStorage.getItem('cart')))
+        }
+        arrItems.push(item_numb)
+        localStorage.setItem('cart', JSON.stringify([...new Set(arrItems)]))
+        showToast('success', 'Ваша корзина пополнена')
+    }
+
 
     return (
         <div>
@@ -59,9 +70,8 @@ const ShopMenu = () => {
                         </div>
                         <div className="shop-price">
                             <span className="shop-price-count">{item.item_price} ₽</span>
-                            <button className="shop-item-cart">Купить
+                            <button onClick={() => addItemCart(item.id)} className="shop-item-cart">Купить
                             </button>
-                            {/*<span className="shop-count">Осталось: {item.count} шт.</span>*/}
                         </div>
                     </div>
                 )}

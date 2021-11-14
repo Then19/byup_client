@@ -2,7 +2,7 @@
     padding: 10px;
     border: 2px solid #030303;
     border-radius: 8px;
-    background: url("../img/chat/one_back2.png");
+    background-color: rgb(27, 27, 42);
 }
 
 .chat {
@@ -16,6 +16,10 @@
     border-radius: 6px;
     background: url("../img/chat/back_for_chat.jpg");
     background-size: 100%;
+}
+
+.chat-button-block{
+    margin: 0 0 15px;
 }
 
 .message {
