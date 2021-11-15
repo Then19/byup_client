@@ -67,11 +67,9 @@ const OnlineChat = ({page, ...props}) => {
     return (
         <div className="full-chat">
             <div className="chat-button-block">
-                <InputText className="inputText" placeholder="Текст сообщения" value={msg} onChange={e => setMsg(e.target.value)}/>
+                <InputText className="inputText" placeholder="Комментарий" value={msg} onChange={e => setMsg(e.target.value)}/>
                 <InputName className="inputName" placeholder="Ваше имя" value={username} onChange={u => setUsername(u.target.value)}/>
-                <NewButton className="myBtn" onClick={addNewMessage}>Отправить сообщение</NewButton>
-                <NewButton className="myBtn" onClick={() => {startReload(reload + 1)
-                    showToast('info', 'Обновление чата')}}>upd</NewButton>
+                <NewButton className="myBtn" onClick={addNewMessage}>Оставить комментарий</NewButton>
             </div>
             <div className='chat'>
                 {messages.map(msg =>

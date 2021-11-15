@@ -61,7 +61,9 @@ const ShopMenu = () => {
                 {items.map(item =>
                     <div className="shop-card" key={item.id}>
                         <div className="shop-img-block">
-                            <img className="shop-img" src={"http://localhost:5000/get_img/" + item.img_name}  alt=""/>
+                            <a href={"/shop/" + item.id}>
+                                <img className="shop-img" src={"http://localhost:5000/get_img/" + item.img_name}  alt=""/>
+                            </a>
                         </div>
                         <div className="shop-options">
                             <div>

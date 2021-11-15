@@ -1,0 +1,125 @@
+.Cart-none {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    color: #ababab;
+    font-size: 28px;
+}
+
+.Cart-item-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    color: #eaeaea;
+    border: black solid 2px;
+    padding: 10px 5px;
+    border-radius: 8px;
+}
+
+.Cart-item-first-block {
+    display: flex;
+    justify-content: start;
+}
+
+.Cart-item-name-block {
+
+}
+
+.Cart-item-name {
+    text-decoration: underline;
+    color: white;
+    font-size: 24px;
+}
+
+.Cart-img-block {
+    display: flex;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #3c3c3d;
+    margin-right: 10px;
+}
+
+.Cart-img {
+    width: 90px;
+}
+
+.Cart-button-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: .2px;
+    width: 95px;
+    font-size: 16px;
+    background-color: rgb(126, 4, 4);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 5px;
+}
+
+.Cart-button-delete:hover {
+    transition: 0.5s;
+    background-color: #570303;
+    border: 1px solid black;
+}
+
+.Cart-item-main-name {
+    display: block;
+    justify-content: start;
+    width: 600px;
+}
+
+.Cart-item-description-block {
+    margin: 10px 0;
+}
+
+.Cart-price-block {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.Cart-offer {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 28px;
+    margin: 15px;
+}
+
+.Cart-offer-price {
+    color: #d00522;
+    font-weight: bold;
+}
+
+.Cart-offer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: .2px;
+    font-size: 20px;
+    background-color: rgb(35, 64, 213);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 5px;
+}
+
+.Cart-offer-button:hover {
+    transition: 0.5s;
+    background-color: rgb(12, 32, 134);
+    border: 1px solid black;
+}
