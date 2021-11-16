@@ -16,7 +16,6 @@ const Techpanel = () => {
         }).then(
             res => res.json()
         ).then(data => {
-            console.log(data.status)
             setStatus(data.status)
         })
     }, [])
@@ -61,7 +60,6 @@ const Techpanel = () => {
         }).then(
             r => r.json()
         ).then( data => {
-            console.log(data.status)
             if (data.status === true){
                 showToast('success', 'Новый товар успешно добавлен')
             } else {
@@ -84,7 +82,6 @@ const Techpanel = () => {
         }).then(
             r => r.json()
         ).then( data => {
-            console.log(data.status)
             if (data.status === true){
                 showToast('success', 'Товар успешно удален')
             } else {
