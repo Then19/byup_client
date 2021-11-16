@@ -28,7 +28,7 @@ const ShopItem = ({page, ...props}) => {
         }
         arrItems.push(item.id)
         localStorage.setItem('cart', JSON.stringify([...new Set(arrItems)]))
-        showToast('success', 'Ваша корзина пополнена')
+        showToast('info', 'Ваша корзина пополнена')
     }
 
     return (

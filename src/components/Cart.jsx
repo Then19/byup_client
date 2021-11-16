@@ -16,7 +16,7 @@ const Cart = () => {
         ).then(data => {
             let cartMap = JSON.parse(localStorage.getItem('cart'))
             let tmpArr = [];
-            data.data.map(item => {
+            data.data.forEach(item => {
                 if (cartMap !== null) {
                     if (cartMap.includes(item.id)) {
                         tmpArr.push(item)

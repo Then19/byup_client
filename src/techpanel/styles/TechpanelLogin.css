@@ -1,0 +1,46 @@
+.tp-main-login {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.tp-login {
+    display: block;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.tp-pnh-text {
+    color: white;
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+.tp-main {
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.tp-add-item-block {
+    display: block;
+    width: 450px;
+    text-align: center;
+}
+
+.tp-input {
+    margin: 5px 0;
+    color: white;
+    width: 450px;
+    padding: 5px;
+    background-color: #3c3c3d;
+}
+
+.tp-button {
+    padding: 5px;
+    margin: 10px 0;
+    color: white;
+    background-color: #3c3c3d;
+}

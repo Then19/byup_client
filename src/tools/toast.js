@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export function showToast(type, text) {
     const settings_toast = {
+        theme: "dark",
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,

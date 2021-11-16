@@ -39,7 +39,7 @@ const ShopMenu = () => {
         }
         arrItems.push(item_numb)
         localStorage.setItem('cart', JSON.stringify([...new Set(arrItems)]))
-        showToast('success', 'Ваша корзина пополнена')
+        showToast('info', 'Ваша корзина пополнена')
     }
 
 
