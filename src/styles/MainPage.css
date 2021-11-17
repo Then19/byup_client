@@ -1,0 +1,25 @@
+.main-carusel-box {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 780px;
+}
+
+.main-img-box {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.main-carusel-img {
+    height: auto;
+    width: 780px;
+}
+
+
+.main-must-items-box {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 20px;
+}

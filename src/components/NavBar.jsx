@@ -12,9 +12,6 @@ const NavBar = ({page, ...props}) => {
                     <a className="a-nav" href="/shop">Магазин</a>
                 </li>
                 <li className="header-item headerButton">
-                    <a className="a-nav" href="/news">Новости</a>
-                </li>
-                <li className="header-item headerButton">
                     <a className="a-nav" href="/about">О нас</a>
                 </li>
             </ul>

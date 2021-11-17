@@ -1,0 +1,13 @@
+{
+  "items": [
+    {"id": 1, "title": "dvanime", "href": "/shop"},
+    {"id": 2, "title": "metall_one", "href": "/shop"},
+    {"id": 3, "title": "metall_one", "href": "/shop"}
+  ],
+  "items_must": [
+    {"id": 1, "title": "dvanime", "href": "/shop"},
+    {"id": 2, "title": "metall_one", "href": "/shop"},
+    {"id": 3, "title": "metall_one", "href": "/shop"},
+    {"id": 3, "title": "metall_one", "href": "/shop"}
+  ]
+}

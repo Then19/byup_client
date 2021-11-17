@@ -1,0 +1,19 @@
+.about-main {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+    color: white;
+}
+
+.about-text {
+    font-size: 18px;
+}
+
+.about-a {
+    color: white;
+    text-decoration: underline;
+}
+
+.about-p {
+    margin: 10px 0;
+}

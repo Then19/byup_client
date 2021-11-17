@@ -2,7 +2,7 @@
 .shop-menu {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .shop-card {
@@ -31,7 +31,7 @@
 .shop-options {
     margin: 0 15px 5px 15px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .shop-item-name {

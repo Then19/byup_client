@@ -6,10 +6,10 @@ import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/ShopPage";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
-import NewsPage from "./pages/NewsPage";
 import BasePage from "./pages/BasePage";
 import CartPage from "./pages/CartPage";
 import TechpanelPage from "./techpanel/TechpanelPage";
+import AboutPage from "./pages/AboutPage";
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
                 <NavBar/>
                 <Routes>
                     <Route path="/" element={<HomePage page="main"/>} />
-                    <Route path="/news" element={<NewsPage page="news"/>} />
                     <Route path="/shopcart" element={<CartPage/>} />
+                    <Route path="/about" element={<AboutPage/>} />
                     <Route exact path="/shop" element={<ShopPage page="shop"/>} />
                     <Route exact path="/shop/:id" element={<BasePage page="shop"/>} />
                     <Route path="/techpanel" element={<TechpanelPage/>} />

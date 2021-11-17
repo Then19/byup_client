@@ -6,8 +6,6 @@ const ShopMenu = () => {
     const [items, setItems] = useState([{'id': 0, 'item_name': 'Server', 'item_description': 'Not', 'item_price': 0,
         'img_name': 'test', 'count': 777}])
 
-    const [select, setSelect] = useState()
-
     useEffect(() => {
         fetch("/get_items", {
             headers: {
@@ -21,7 +19,6 @@ const ShopMenu = () => {
     }, [])
 
     const sortItems = (sort) => {
-        setSelect(sort)
         if (sort === 'item_name'){
             setItems([...items].sort((a,b) => a[sort].localeCompare(b[sort])))
         } else if (sort === 'price-up'){
@@ -48,6 +45,7 @@ const ShopMenu = () => {
             <div className="shop-selector">
                 <div>
                     <select className="shop-selector-select" name="" id="" onChange={event => sortItems(event.target.value)}>
+                        <option value="">Сортировать по</option>
                         <option value="item_name">По названию</option>
                         <option value="price-up">Цена (сначала дорогие)</option>
                         <option value="price-down">Цена (сначала дешевые)</option>
