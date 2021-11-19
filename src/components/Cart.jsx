@@ -5,6 +5,13 @@ import {showToast} from "../tools/toast";
 const Cart = () => {
 
     const [items, setItems] = useState([])
+    const [offerWindow, setOfferWindow] = useState(-1)
+
+    const [offerFirstName, setOfferFirstName] = useState("")
+    const [offerLastName, setOfferLastName] = useState("")
+    const [offerNumber, setOfferNumber] = useState("")
+    const [offerAddress, setOfferAddress] = useState("")
+
 
     useEffect(() => {
         fetch("/get_items", {
@@ -56,6 +63,34 @@ const Cart = () => {
         return countPrice
     }
 
+    function stateOfferWindow() {
+        setOfferWindow(offerWindow * -1)
+    }
+
+    function checkValue() {
+        if (offerFirstName.length < 1 || offerLastName < 1 || offerNumber < 1 || offerAddress < 1) {
+            showToast('error', 'Пожалуйста заполните все поля')
+            return false
+        }
+        return true
+    }
+
+    function renderOffer () {
+        if (offerWindow === 1){
+            return (
+                <div className="Cart-offer-main-block">
+                    <div className="Cart-offer-block">
+                        <input className="Cart-offer-input" placeholder={"Ваше имя"} value={offerFirstName} onChange={e => setOfferFirstName(e.target.value)} type="text"/>
+                        <input className="Cart-offer-input" placeholder={"Ваша фамилия"} value={offerLastName} onChange={e => setOfferLastName(e.target.value)} type="text"/>
+                        <input className="Cart-offer-input" placeholder={"Номер телефона"} value={offerNumber} onChange={e => setOfferNumber(e.target.value)} type="text"/>
+                        <input className="Cart-offer-input" placeholder={"Адрес"} value={offerAddress} onChange={e => setOfferAddress(e.target.value)} type="text"/>
+                        <button onClick={checkValue}>Проверить</button>
+                    </div>
+                </div>
+            );
+        }
+    }
+
 
     return (
         <div>
@@ -89,9 +124,10 @@ const Cart = () => {
                     <span>Сумма заказа: <span className="Cart-offer-price">{getCountPrice()} ₽</span></span>
                 </div>
                 <div>
-                    <button className="Cart-offer-button">Оформить заказ</button>
+                    <button onClick={stateOfferWindow} className="Cart-offer-button">Перейти к оформлению</button>
                 </div>
             </div>
+            {renderOffer()}
         </div>
     );
 };

@@ -121,5 +121,28 @@
 .Cart-offer-button:hover {
     transition: 0.5s;
     background-color: rgb(12, 32, 134);
-    border: 1px solid black;
+    border: 1px black;
+}
+
+.Cart-offer-main-block {
+    display: flex;
+    justify-content: center;
+}
+
+.Cart-offer-block {
+    padding: 15px;
+    margin: 10px;
+    width: 400px;
+}
+
+.Cart-offer-input {
+    color: white;
+    padding: 5px;
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+    background-color: #3c3c3d;
+    border-radius: 6px;
+    border: 1px black;
+    font-size: 18px;
 }
