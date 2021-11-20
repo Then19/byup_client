@@ -130,9 +130,17 @@
 }
 
 .Cart-offer-block {
+    position: fixed;
+    top: 25%;
+    height:380px;
+    display: block;
+    z-index: 100;
     padding: 15px;
     margin: 10px;
-    width: 400px;
+    width: 450px;
+    background-color: rgb(27, 27, 42);
+    border-radius: 8px;
+    border: 3px solid #a6a5a5;
 }
 
 .Cart-offer-input {
@@ -145,4 +153,64 @@
     border-radius: 6px;
     border: 1px black;
     font-size: 18px;
+    resize: none;
+}
+
+.Cart-offer-input::-webkit-scrollbar {
+    display: none;
+}
+
+.Cart-offer-close {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.Cart-offer-button-close {
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    background-color: #faced4;
+    font-weight: bold;
+}
+
+.Cart-offer-title {
+    font-size: 20px;
+}
+
+.Cart-offer-accept-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    color: white;
+    font-size: 20px;
+}
+
+.Cart-offer-span-price {
+    font-weight: bolder;
+}
+
+.Cart-offer-success-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: .2px;
+    width: 95px;
+    font-size: 16px;
+    background-color: rgb(10, 136, 12);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 5px;
+}
+
+.Cart-offer-success-button:hover {
+    transition: 0.5s;
+    background-color: #175203;
+    border: 1px black;
 }

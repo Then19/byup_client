@@ -34,7 +34,7 @@ const ShopItem = ({page, ...props}) => {
     return (
         <div className="item-main-block">
             <div className="item-block-img">
-                <img className="item-img" src={"http://localhost:5000/get_img/" + item.img_name}  alt=""/>
+                <img className="item-img" src={"https://api.byup.ru/get_img/" + item.img_name}  alt=""/>
             </div>
             <div className="item-text-block">
                 <div className="item-name">

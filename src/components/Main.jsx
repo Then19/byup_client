@@ -12,7 +12,7 @@ const Main = () => {
                     {state.items.map(item => <div className="main-carusel-box" key={item.id}>
                         <div className="main-img-box">
                             <a href={item.href}>
-                                <img className="main-carusel-img" src={"http://localhost:5000/get_img/" + item.title} alt=""/>
+                                <img className="main-carusel-img" src={"https://api.byup.ru/get_img/" + item.title} alt=""/>
                             </a>
                         </div>
                     </div>)}
@@ -30,7 +30,7 @@ const Main = () => {
             <div className="main-must-items-box">
                 <div className="main-must-items">
                     {state.mustItems.map(item => <div className="main-must-item" key={item.id}>
-                        <a href={item.href}><img className="main-must-item-img" src={"http://localhost:5000/get_img/" + item.img_name} alt=""/></a>
+                        <a href={item.href}><img className="main-must-item-img" src={"https://api.byup.ru/get_img/" + item.img_name} alt=""/></a>
                     </div>)}
                 </div>
             </div>

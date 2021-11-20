@@ -11,6 +11,7 @@ const Cart = () => {
     const [offerLastName, setOfferLastName] = useState("")
     const [offerNumber, setOfferNumber] = useState("")
     const [offerAddress, setOfferAddress] = useState("")
+    const [offerComment, setOfferComment] = useState("")
 
 
     useEffect(() => {
@@ -75,22 +76,67 @@ const Cart = () => {
         return true
     }
 
+    function sendOffer() {
+        if (checkValue() === false){
+            return
+        }
+        let data = new FormData()
+        data.append('user_firstname', offerFirstName)
+        data.append('user_lastname', offerLastName)
+        data.append('user_number', offerNumber)
+        data.append('user_address', offerAddress)
+        data.append('user_comment', offerComment)
+        data.append('offer_items', localStorage.getItem('cart'))
+        fetch("/add_offer", {
+            method: "POST",
+            body: data,
+            headers: {
+                "type": "formData"
+            }
+        }).then(
+            res => res.json()
+        ).then( data =>{
+            if (data.status === true) {
+                showToast('success', 'Заказ принят, ожидайте звонка оператора')
+                setOfferFirstName("")
+                setOfferLastName("")
+                setOfferNumber("")
+                setOfferAddress("")
+                setOfferComment("")
+                localStorage.setItem('cart', JSON.stringify([]))
+                setItems([])
+                stateOfferWindow()
+            } else {
+                showToast('error', "Что то пошло не так")
+            }
+        })
+    }
+
     function renderOffer () {
         if (offerWindow === 1){
             return (
                 <div className="Cart-offer-main-block">
                     <div className="Cart-offer-block">
-                        <input className="Cart-offer-input" placeholder={"Ваше имя"} value={offerFirstName} onChange={e => setOfferFirstName(e.target.value)} type="text"/>
-                        <input className="Cart-offer-input" placeholder={"Ваша фамилия"} value={offerLastName} onChange={e => setOfferLastName(e.target.value)} type="text"/>
+                        <div className="Cart-offer-close">
+                            <div className="Cart-offer-title">
+                                Оформление заказа
+                            </div>
+                            <button className="Cart-offer-button-close" onClick={stateOfferWindow}>X</button>
+                        </div>
+                        <input className="Cart-offer-input" placeholder={"Имя"} value={offerFirstName} onChange={e => setOfferFirstName(e.target.value)} type="text"/>
+                        <input className="Cart-offer-input" placeholder={"Фамилия"} value={offerLastName} onChange={e => setOfferLastName(e.target.value)} type="text"/>
                         <input className="Cart-offer-input" placeholder={"Номер телефона"} value={offerNumber} onChange={e => setOfferNumber(e.target.value)} type="text"/>
                         <input className="Cart-offer-input" placeholder={"Адрес"} value={offerAddress} onChange={e => setOfferAddress(e.target.value)} type="text"/>
-                        <button onClick={checkValue}>Проверить</button>
+                        <textarea className="Cart-offer-input" rows="3" placeholder="Комментарий к заказу" value={offerComment} onChange={e => setOfferComment(e.target.value)}/>
+                        <div className="Cart-offer-accept-block">
+                            <div>Сумма: <span className={"Cart-offer-span-price"}>{getCountPrice() + 200} ₽</span></div>
+                            <button className="Cart-offer-success-button" onClick={sendOffer}>Заказать</button>
+                        </div>
                     </div>
                 </div>
             );
         }
     }
-
 
     return (
         <div>
@@ -99,7 +145,7 @@ const Cart = () => {
                     <div className="Cart-item-first-block">
                         <div className="Cart-img-block">
                             <a href={"/shop/" + item.id}>
-                                <img className="Cart-img" src={"http://localhost:5000/get_img/" + item.img_name} alt=""/>
+                                <img className="Cart-img" src={"https://api.byup.ru/get_img/" + item.img_name} alt=""/>
                             </a>
                         </div>
                         <div className="Cart-item-main-name">
@@ -121,7 +167,7 @@ const Cart = () => {
             )}
             <div className="Cart-offer">
                 <div>
-                    <span>Сумма заказа: <span className="Cart-offer-price">{getCountPrice()} ₽</span></span>
+                    <span>Сумма заказа: <span className="Cart-offer-price">{getCountPrice()} ₽</span> + доставка 200 ₽</span>
                 </div>
                 <div>
                     <button onClick={stateOfferWindow} className="Cart-offer-button">Перейти к оформлению</button>

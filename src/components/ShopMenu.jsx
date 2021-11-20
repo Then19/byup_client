@@ -45,7 +45,7 @@ const ShopMenu = () => {
             <div className="shop-selector">
                 <div>
                     <select className="shop-selector-select" name="" id="" onChange={event => sortItems(event.target.value)}>
-                        <option value="">Сортировать по</option>
+                        <option disabled value="">Сортировать по</option>
                         <option value="item_name">По названию</option>
                         <option value="price-up">Цена (сначала дорогие)</option>
                         <option value="price-down">Цена (сначала дешевые)</option>
@@ -60,7 +60,7 @@ const ShopMenu = () => {
                     <div className="shop-card" key={item.id}>
                         <div className="shop-img-block">
                             <a href={"/shop/" + item.id}>
-                                <img className="shop-img" src={"http://localhost:5000/get_img/" + item.img_name}  alt=""/>
+                                <img className="shop-img" src={"https://api.byup.ru/get_img/" + item.img_name}  alt=""/>
                             </a>
                         </div>
                         <div className="shop-options">
