@@ -214,3 +214,9 @@
     background-color: #175203;
     border: 1px black;
 }
+
+.Cart-offer-success-text {
+    margin: 20px 0;
+    font-size: 18px;
+    color: white;
+}

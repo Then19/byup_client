@@ -50,10 +50,34 @@ const Cart = () => {
         showToast('info', "Вы убрали из заказа: " + item.item_name)
     }
 
+    function renderOfferSuccess (){
+        if (offerWindow === 1){
+            return (
+                <div className="Cart-offer-main-block">
+                    <div className="Cart-offer-block">
+                        <div className="Cart-offer-close">
+                            <div className="Cart-offer-title">
+                                Оформление заказа
+                            </div>
+                            <button className="Cart-offer-button-close" onClick={stateOfferWindow}>X</button>
+                        </div>
+                        <div className={"Cart-offer-success-text"}>
+                            <p>Заказ принят, в скором времени с вами свяжется оператор.</p> <br/>
+                            <p>Прошу обратить внимание: мы работаем только на территории Тюмени.</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    }
+
     if (items.length === 0) {
         return (
-            <div className="Cart-none">
-                Ваша корзина пуста
+            <div>
+                <div className="Cart-none">
+                    Ваша корзина пуста
+                </div>
+                {renderOfferSuccess()}
             </div>
         );
     }
@@ -105,7 +129,6 @@ const Cart = () => {
                 setOfferComment("")
                 localStorage.setItem('cart', JSON.stringify([]))
                 setItems([])
-                stateOfferWindow()
             } else {
                 showToast('error', "Что то пошло не так")
             }

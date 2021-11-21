@@ -1,13 +1,13 @@
 {
   "items": [
-    {"id": 1, "title": "dvanime", "href": "/shop"},
-    {"id": 2, "title": "metall_one", "href": "/shop"},
-    {"id": 3, "title": "metall_one", "href": "/shop"}
+    {"id": 1, "title": "neon_baner", "href": "/shop"},
+    {"id": 2, "title": "zombie_baner", "href": "/shop"},
+    {"id": 3, "title": "metal_baner", "href": "/shop"}
   ],
   "mustItems": [
-    {"id": 1, "img_name": "dvanime", "href": "/shop/3"},
-    {"id": 2, "img_name": "metall_one", "href": "/shop/6"},
-    {"id": 3, "img_name": "metall_two", "href": "/shop/7"},
-    {"id": 4, "img_name": "metall_one", "href": "/shop/6"}
+    {"id": 1, "img_name": "neon_g_1_25", "href": "/shop/24"},
+    {"id": 2, "img_name": "quote_g_2_25", "href": "/shop/27"},
+    {"id": 3, "img_name": "metall_two", "href": "/shop/2"},
+    {"id": 4, "img_name": "zombie_g_2_25", "href": "/shop/31"}
   ]
 }
