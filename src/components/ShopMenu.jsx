@@ -1,21 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/ShopMenu.css"
 import {showToast} from "../tools/toast";
+import axios from "axios";
 
 const ShopMenu = () => {
     const [items, setItems] = useState([{'id': 0, 'item_name': 'Server', 'item_description': 'Not', 'item_price': 0,
         'img_name': 'test', 'count': 777}])
 
+    async function getItemsApi() {
+        const response = await axios.get("https://api.byup.ru/get_items")
+        setItems(response.data.data)
+    }
+
     useEffect(() => {
-        fetch("/get_items", {
-            headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then(data => {
-            setItems(data.data)
-        })
+        getItemsApi()
     }, [])
 
     const sortItems = (sort) => {

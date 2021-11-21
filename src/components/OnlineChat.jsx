@@ -4,6 +4,7 @@ import InputText from "./UI/input/InputText";
 import InputName from "./UI/input/InputName";
 import {showToast} from "../tools/toast";
 import '../styles/Chat.css'
+import axios from "axios";
 
 const OnlineChat = ({page, ...props}) => {
 
@@ -21,46 +22,50 @@ const OnlineChat = ({page, ...props}) => {
     const [username, setUsername] = useState(getLocalChatName())
     const [msg, setMsg] = useState('')
 
-
-    useEffect(() => {
+    async function getMessagesApi() {
         let data = new FormData()
         data.append("page", page)
-        fetch("/get_messages", {
-            method: "POST",
-            body: data,
-            headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then(data => {
-            setMessages(data.data)
+        const response = await axios({
+            url: 'https://api.byup.ru/get_messages',
+                method: 'POST',
+                data: data,
+                headers: {
+                Accept: 'application/json',
+                    'Content-Type': 'multipart/form-data',
+            },
         })
+        setMessages(response.data.data)
+    }
+
+
+    useEffect(() => {
+        getMessagesApi()
     }, [reload])
 
-    function addNewMessage(){
+    async function addNewMessage(){
         localStorage.setItem("ChatName", username)
 
         let data = new FormData()
         data.append("username", username)
         data.append("message", msg)
         data.append("page", page)
-        fetch("/add_message", {
-            method: "POST",
-            body: data,
+
+        const response = await axios({
+            url: 'https://api.byup.ru/add_message',
+            method: 'POST',
+            data: data,
             headers: {
-                "type": "formData"
-            }
-        }).then(rtn => rtn.json()).then(
-            sts => {
-                if (sts.status) {
-                    showToast('success', 'Комментарий успешно оставлен')
-                    startReload(reload + 1)
-                } else {
-                    showToast('warn', 'Комментарий не был оставлен: ' + sts.warn)
-                }
-            }
-        )
+                Accept: 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
+        })
+
+        if (response.data.status) {
+            showToast('success', 'Комментарий успешно оставлен')
+            startReload(reload + 1)
+        } else {
+            showToast('warn', 'Комментарий не был оставлен: ' + response.data.warn)
+        }
         setMsg('')
     }
 

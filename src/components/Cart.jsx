@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/Cart.css"
 import {showToast} from "../tools/toast";
+import axios from "axios";
 
 const Cart = () => {
 
@@ -13,26 +14,23 @@ const Cart = () => {
     const [offerAddress, setOfferAddress] = useState("")
     const [offerComment, setOfferComment] = useState("")
 
+    async function getItemsAPI() {
+        const response = await axios.get("https://api.byup.ru/get_items")
+
+        let cartMap = JSON.parse(localStorage.getItem('cart'))
+        let tmpArr = [];
+        response.data.data.forEach(item => {
+            if (cartMap !== null) {
+                if (cartMap.includes(item.id)) {
+                    tmpArr.push(item)
+                }
+            }
+        })
+        setItems(tmpArr)
+    }
 
     useEffect(() => {
-        fetch("/get_items", {
-            headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then(data => {
-            let cartMap = JSON.parse(localStorage.getItem('cart'))
-            let tmpArr = [];
-            data.data.forEach(item => {
-                if (cartMap !== null) {
-                    if (cartMap.includes(item.id)) {
-                        tmpArr.push(item)
-                    }
-                }
-            })
-            setItems(tmpArr)
-        })
+        getItemsAPI()
     }, [])
 
     function removeCartItem(item) {
@@ -100,7 +98,7 @@ const Cart = () => {
         return true
     }
 
-    function sendOffer() {
+    async function sendOffer() {
         if (checkValue() === false){
             return
         }
@@ -111,28 +109,29 @@ const Cart = () => {
         data.append('user_address', offerAddress)
         data.append('user_comment', offerComment)
         data.append('offer_items', localStorage.getItem('cart'))
-        fetch("/add_offer", {
-            method: "POST",
-            body: data,
+
+        const response = await axios({
+            url: 'https://api.byup.ru/add_offer',
+            method: 'POST',
+            data: data,
             headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then( data =>{
-            if (data.status === true) {
-                showToast('success', 'Заказ принят, ожидайте звонка оператора')
-                setOfferFirstName("")
-                setOfferLastName("")
-                setOfferNumber("")
-                setOfferAddress("")
-                setOfferComment("")
-                localStorage.setItem('cart', JSON.stringify([]))
-                setItems([])
-            } else {
-                showToast('error', "Что то пошло не так")
-            }
+                Accept: 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
         })
+
+        if (response.data.status === true) {
+            showToast('success', 'Заказ принят, ожидайте звонка оператора')
+            setOfferFirstName("")
+            setOfferLastName("")
+            setOfferNumber("")
+            setOfferAddress("")
+            setOfferComment("")
+            localStorage.setItem('cart', JSON.stringify([]))
+            setItems([])
+        } else {
+            showToast('error', "Что то пошло не так")
+        }
     }
 
     function renderOffer () {

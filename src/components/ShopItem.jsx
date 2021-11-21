@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import "../styles/ShopItem.css"
 import {showToast} from "../tools/toast";
+import axios from "axios";
 
 const ShopItem = ({page, ...props}) => {
     const params = useParams()
@@ -9,16 +10,13 @@ const ShopItem = ({page, ...props}) => {
     const [item, setItem] = useState({'id': 0, 'item_name': 'Server', 'item_description': 'Not', 'item_price': 0,
         'img_name': 'test', 'count': 777})
 
+    async function getItemApi() {
+        const response = await axios.get("https://api.byup.ru/get_item/" + params.id)
+        setItem(response.data.data[0])
+    }
+
     useEffect(() => {
-        fetch("/get_item/" + params.id, {
-            headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then(data => {
-            setItem(data.data[0])
-        })
+        getItemApi()
     }, [])
 
     const addItemCart = () => {

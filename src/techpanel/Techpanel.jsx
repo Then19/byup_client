@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "../techpanel/styles/TechpanelLogin.css"
 import {showToast} from "../tools/toast";
+import axios from "axios";
 
 const Techpanel = () => {
     const [status, setStatus] = useState(false)
@@ -8,34 +9,31 @@ const Techpanel = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
 
+    async function checkLogin() {
+        const response = await axios.get("https://api.byup.ru/login")
+        setStatus(response.data.status)
+    }
+
     useEffect(() => {
-        fetch("/login", {
-            headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then(data => {
-            setStatus(data.status)
-        })
+        checkLogin()
     }, [])
 
 
-    function loginServer() {
+    async function loginServer() {
         let data = new FormData()
         data.append('login', login)
         data.append('psw', password)
-        fetch("/login", {
-            method: "POST",
-            body: data,
+
+        const response = await axios({
+            url: "https://api.byup.ru/login",
+            method: 'POST',
+            data: data,
             headers: {
-                "type": "formData"
-            }
-        }).then(
-            res => res.json()
-        ).then( data =>{
-            setStatus(data.status)
+            Accept: 'application/json',
+                'Content-Type': 'multipart/form-data',
+        },
         })
+        setStatus(response.data.status)
     }
 
     const [itemName ,setItemName] = useState('')
@@ -44,50 +42,56 @@ const Techpanel = () => {
     const [itemImg ,setItemImg] = useState('')
     const [itemCount ,setItemCount] = useState('')
 
-    function addItemDB () {
+    async function addItemDB () {
         let data = new FormData()
         data.append('item_name', itemName)
         data.append('item_description', itemDescription)
         data.append('item_price', itemPrice)
         data.append('img_name', itemImg)
         data.append('count', itemCount)
-        fetch("/add_item", {
-            method: "POST",
-            body: data,
+        data.append('login', login)
+        data.append('psw', password)
+
+        const response = await axios({
+            url: "https://api.byup.ru/add_item",
+            method: 'POST',
+            data: data,
             headers: {
-                "type": "formData"
-            }
-        }).then(
-            r => r.json()
-        ).then( data => {
-            if (data.status === true){
-                showToast('success', 'Новый товар успешно добавлен')
-            } else {
-                showToast('error', 'Что то пошло не так')
-            }
+                Accept: 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
         })
+
+        if (response.data.status === true){
+            showToast('success', 'Новый товар успешно добавлен')
+        } else {
+            showToast('error', 'Что то пошло не так')
+        }
     }
 
     const [itemID, setItemID] = useState()
 
-    function deleteItemDB () {
+    async function deleteItemDB () {
         let data = new FormData()
         data.append('itemID', itemID)
-        fetch("/delete_item", {
-            method: "POST",
-            body: data,
+        data.append('login', login)
+        data.append('psw', password)
+
+        const response = await axios({
+            url: "https://api.byup.ru/delete_item",
+            method: 'POST',
+            data: data,
             headers: {
-                "type": "formData"
-            }
-        }).then(
-            r => r.json()
-        ).then( data => {
-            if (data.status === true){
-                showToast('success', 'Товар успешно удален')
-            } else {
-                showToast('error', 'Что то пошло не так')
-            }
+                Accept: 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
         })
+
+        if (response.data.status === true){
+            showToast('success', 'Товар успешно удален')
+        } else {
+            showToast('error', 'Что то пошло не так')
+        }
     }
 
 
