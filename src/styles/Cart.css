@@ -11,9 +11,10 @@
     justify-content: space-between;
     margin: 10px;
     color: #eaeaea;
-    border: black solid 2px;
+    border: #37033a solid 2px;
     padding-right: 10px;
     border-radius: 8px;
+    background: linear-gradient(to right, #37033a, #59095e, #06065b);
 }
 
 .Cart-item-first-block {
@@ -141,7 +142,7 @@
     padding: 15px;
     margin: 10px;
     width: 450px;
-    background-color: rgb(27, 27, 42);
+    background: linear-gradient(#06063d, #031a8c);
     border-radius: 8px;
     border: 3px solid #a6a5a5;
 }
@@ -152,7 +153,7 @@
     margin: 5px 0 10px 0;
     display: inline-block;
     width: 100%;
-    background-color: #3c3c3d;
+    background-color: #292950;
     border-radius: 6px;
     border: 1px black;
     font-size: 18px;

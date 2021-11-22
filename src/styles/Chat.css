@@ -1,8 +1,5 @@
 .full-chat {
-    padding: 10px;
-    border: 2px solid #030303;
     border-radius: 8px;
-    background-color: rgb(27, 27, 42);
 }
 
 .chat {
@@ -12,14 +9,13 @@
     padding: 10px;
     margin: 0;
     overflow: scroll;
-    border: 1px solid #030303;
     border-radius: 6px;
-    background: url("../img/chat/back_for_chat.jpg");
-    background-size: 100%;
+    background: linear-gradient(#2c022b, #070964);
 }
 
 .chat-button-block{
     margin: 0 0 15px;
+    padding: 10px;
 }
 
 .message {
@@ -66,7 +62,7 @@
     margin: 0 5px;
     color: #282727;
     font-size: 14px;
-    border: 1px solid #030303;
+    border: 0;
     border-radius: 6px;
     cursor: pointer;
     background: rgba(234, 233, 233, 0.7);
@@ -74,4 +70,9 @@
 
 .font-15 {
     font-size: 15px;
+}
+
+.chat-button-name-block {
+    display: flex;
+    justify-content: space-between;
 }

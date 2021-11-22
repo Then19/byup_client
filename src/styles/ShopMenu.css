@@ -10,8 +10,14 @@
     width: 215px;
     margin: 5px;
     border-radius: 8px;
-    border: 1px solid white;
+    border: 2px solid #57074d;
     background: linear-gradient(red, #06065b, #59095e);
+    transition: 0.5s;
+}
+
+.shop-card:hover {
+    border: 2px solid #f8d7f4;
+    transition: 0.5s;
 }
 
 .shop-img-block {
@@ -94,9 +100,4 @@
     border-radius: 8px;
     padding: 5px;
     border: black solid 1px;
-}
-
-.shop-selector-options {
-    color: #d8eeec;
-    background-color: #59095e;
 }

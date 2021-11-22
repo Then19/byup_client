@@ -73,8 +73,9 @@ const OnlineChat = ({page, ...props}) => {
         <div className="full-chat">
             <div className="chat-button-block">
                 <InputText className="inputText" placeholder="Комментарий" value={msg} onChange={e => setMsg(e.target.value)}/>
-                <InputName className="inputName" placeholder="Ваше имя" value={username} onChange={u => setUsername(u.target.value)}/>
                 <NewButton className="myBtn" onClick={addNewMessage}>Оставить комментарий</NewButton>
+                <InputName className="inputName" placeholder="Ваше имя" value={username} onChange={u => setUsername(u.target.value)}/>
+
             </div>
             <div className='chat'>
                 {messages.map(msg =>
