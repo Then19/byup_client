@@ -67,7 +67,7 @@ const ShopMenu = () => {
                             </div>
                         </div>
                         <div className="shop-price">
-                            <span className="shop-price-count">{item.item_price} ₽</span>
+                            <span className="shop-price-count">{item.item_price}₽</span>
                             <button onClick={() => addItemCart(item.id)} className="shop-item-cart">Купить
                             </button>
                         </div>
