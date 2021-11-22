@@ -179,7 +179,7 @@ const Cart = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className={"Cart-button-delete-block"}>
                         <button className="Cart-button-delete" onClick={() => removeCartItem(item)}>Убрать</button>
                         <div className="Cart-price-block">
                             <span>{item.item_price} ₽</span>

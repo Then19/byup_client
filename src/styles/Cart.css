@@ -12,7 +12,7 @@
     margin: 10px;
     color: #eaeaea;
     border: black solid 2px;
-    padding: 10px 5px;
+    padding-right: 10px;
     border-radius: 8px;
 }
 
@@ -34,8 +34,8 @@
 .Cart-img-block {
     display: flex;
     justify-content: center;
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 8px;
     overflow: hidden;
     border: 2px solid #3c3c3d;
@@ -43,7 +43,11 @@
 }
 
 .Cart-img {
-    width: 90px;
+    width: 100px;
+}
+
+.Cart-button-delete-block {
+    padding-top: 10px;
 }
 
 .Cart-button-delete {
@@ -53,27 +57,26 @@
     letter-spacing: .2px;
     width: 95px;
     font-size: 16px;
-    background-color: rgb(126, 4, 4);
+    background: linear-gradient(50deg, #930707, #620303);
     color: white;
     border-radius: 4px;
-    border: none;
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    transition: 0.5s;
+    transition: 0.7s;
     padding: 5px;
+    border: 1px solid #382727;
 }
 
 .Cart-button-delete:hover {
-    transition: 0.5s;
-    background-color: #570303;
-    border: 1px solid black;
+    transition: 0.7s;
+    background: linear-gradient(#620303, #930707);
+    border: 1px solid #543c3c;
 }
 
 .Cart-item-main-name {
     display: block;
     justify-content: start;
-    width: 600px;
 }
 
 .Cart-item-description-block {

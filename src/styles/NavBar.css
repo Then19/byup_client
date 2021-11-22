@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0;
-    background-color: rgb(27, 27, 42);
+    background: linear-gradient(#06065b, #59095e);
     color: white;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -28,7 +28,7 @@
 }
 
 .header-item:hover {
-    background-color: #26266e;
+    background: linear-gradient(#59095e, #06065b);
 }
 
 .err {

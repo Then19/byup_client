@@ -43,10 +43,10 @@ const ShopMenu = () => {
             <div className="shop-selector">
                 <div>
                     <select className="shop-selector-select" name="" id="" onChange={event => sortItems(event.target.value)}>
-                        <option disabled value="">Сортировать по</option>
-                        <option value="item_name">По названию</option>
-                        <option value="price-up">Цена (сначала дорогие)</option>
-                        <option value="price-down">Цена (сначала дешевые)</option>
+                        <option className={"shop-selector-options"} defaultChecked value="">Сортировать по</option>
+                        <option className={"shop-selector-options"} value="item_name">По названию</option>
+                        <option className={"shop-selector-options"} value="price-up">Цена (сначала дорогие)</option>
+                        <option className={"shop-selector-options"} value="price-down">Цена (сначала дешевые)</option>
                     </select>
                 </div>
                 <div>
