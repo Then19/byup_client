@@ -3,14 +3,13 @@
 }
 
 .chat {
-    height: 520px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     padding: 10px;
     margin: 0;
     overflow: scroll;
-    border-radius: 6px;
-    background: linear-gradient(#2c022b, #070964);
+    background: linear-gradient(#2c022b, #202124);
 }
 
 .chat-button-block{

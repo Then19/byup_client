@@ -11,7 +11,7 @@
     margin: 5px;
     border-radius: 8px;
     border: 2px solid #57074d;
-    background: linear-gradient(red, #06065b, #59095e);
+    background: linear-gradient(#202124, #06065b, #59095e);
     transition: 0.5s;
 }
 
