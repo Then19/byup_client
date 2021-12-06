@@ -16,8 +16,8 @@ function App() {
 
     return (
         <BrowserRouter>
+            <NavBar/>
             <div className="App">
-                <NavBar/>
                 <Routes>
                     <Route path="/" element={<HomePage page="main"/>} />
                     <Route path="/shopcart" element={<CartPage/>} />
