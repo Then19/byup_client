@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    background: linear-gradient(#06065b, #59095e);
+    background: linear-gradient(rgb(6, 6, 91), rgba(12, 50, 145, 0.9));
     color: white;
     z-index: 150;
     margin: 0;
@@ -44,7 +44,7 @@
 }
 
 .header-item:hover {
-    background: linear-gradient(#59095e, #06065b);
+    background: linear-gradient(rgb(3, 3, 38), rgba(6, 25, 72, 0.9));
 }
 
 .err {

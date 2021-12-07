@@ -1,17 +1,16 @@
-
 .shop-menu {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .shop-card {
     display: block;
     width: 215px;
-    margin: 5px;
+    margin: 10px;
     border-radius: 8px;
-    border: 2px solid #57074d;
-    background: linear-gradient(#202124, #06065b, #59095e);
+    border: 2px solid #5d5d9b;
+    background: linear-gradient(179.97deg, #000000 0.03%, rgba(12, 12, 33, 0) 114.3%), #1E227D;
     transition: 0.5s;
 }
 
@@ -24,7 +23,7 @@
     display: flex;
     justify-content: center;
     height: 250px;
-    border-radius: 4px;
+    border-radius: 5px 5px 0 0;
     overflow: hidden;
 }
 
@@ -74,7 +73,7 @@
     display: flex;
     justify-content: space-between;
     margin: 0 15px 10px 15px;
-    color: #d00522;
+    color: #ffffff;
 }
 
 .shop-price-count {
@@ -83,21 +82,22 @@
 
 .shop-count {
     font-size: 14px;
-    color: #b4b4b4;
+    color: #ffffff;
     margin-left: 15px;
 }
 
 .shop-selector {
     display: flex;
-    justify-content: space-between;
-    margin: 10px;
+    justify-content: center;
+    margin: 10px 25px;
 }
 
 .shop-selector-select {
     color: #a9a7a7;
-    background: linear-gradient(#59095e, #06065b);
+    background: linear-gradient(#110b8a, #040434);
     font-size: 16px;
     border-radius: 8px;
     padding: 5px;
+    margin: 0 15px;
     border: black solid 1px;
 }
